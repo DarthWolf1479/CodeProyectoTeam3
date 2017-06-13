@@ -18,7 +18,7 @@
     |
     <a href="${pageContext.request.contextPath}/inicioProfesor">Profesores</a>
     |
-    <a href="${pageContext.request.contextPath}/materias">Materias</a>
+    <a href="${pageContext.request.contextPath}/inicioMateria">Materias</a>
 
 </nav> 
 

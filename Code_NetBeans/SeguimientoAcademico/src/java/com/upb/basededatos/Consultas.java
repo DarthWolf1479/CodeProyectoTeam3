@@ -6,6 +6,7 @@
 package com.upb.basededatos;
 
 import com.upb.entidades.Alumno;
+import com.upb.entidades.Materia;
 import com.upb.entidades.Profesor;
 import com.upb.entidades.Usuario;
 import java.sql.ResultSet;
@@ -174,9 +175,73 @@ public class Consultas extends Conexion {
     
     public static void actualizarProfesor(String codigo, String nombre, String apellido, String correo, String telefono, String fecha) {
        
-       String consulta = "update alumnos set nombre='"+nombre+"', apellido ='"+apellido+"',"
-                +"email = '"+correo+"',telefono= '"+telefono+"' where codigo='"+codigo+"','"+fecha+"';";
+       String consulta = "update profesores set nombre='"+nombre+"', apellido ='"+apellido+"',"
+                +"email = '"+correo+"',telefono= '"+telefono+"', fecha_nac ='"+fecha+"' where codigo='"+codigo+"';";
         Conexion.getConexion().setUpdate(consulta);
    }    
+    
+       public static List<Materia> listaMateria() {
+        String consulta = "select codigo, nombre, horario, aula, creditos from materias;";
+        ResultSet rs = Conexion.getConexion().getConsulta(consulta);
+        List<Materia> list = new ArrayList<Materia>();
+        Materia materia = null;
+        try {
+            while(rs.next()){
+                String codigo = rs.getString("codigo");
+                String nombre = rs.getString("nombre");
+                String horario = rs.getString("horario");
+                String aula = rs.getString("aula");
+                String creditos = rs.getString("creditos");
+                
+                materia = new Materia(codigo,nombre,horario,aula,creditos);
+                list.add(materia);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public static Materia encontrarMateria(String codigo) {
+        Materia materia = null;
+        String sql = "select * from materias where codigo = '"+codigo+"';"; 
+        ResultSet st = Conexion.getConexion().getConsulta(sql);
+        try {
+            if (st.next()){
+                String code = st.getString("codigo");
+                String nombre = st.getString("nombre");
+                String aula = st.getString("aula");
+                String horario = st.getString("horario");
+                String creditos = st.getString("creditos");
+                
+                materia = new Materia(code, nombre, horario, aula, creditos);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(Consultas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return materia;
+    }
+    
+   public static void registrarMateria(Materia p) {
+       
+       String consulta = "insert into materias values('"+p.getId()+"','"+p.getNombre()+
+               "','"+p.getHorario()+"','"+p.getAula()+"','"+p.getCreditos()+"');";
+       
+       Conexion.getConexion().setUpdate(consulta);
+     
+   }
+    public static void eliminarMateria(String codigo) {
+       
+       String consulta ="delete from materias where codigo = '"+codigo+"';";
+       Conexion.getConexion().setUpdate(consulta);
+   }
+    
+    public static void actualizarMateria(String codigo, String nombre, String horario, String aula, String creditos) {
+       
+       String consulta = "update materias set nombre='"+nombre+"', horario ='"+horario+"',"
+                +"aula = '"+aula+"',creditos= '"+creditos+"' where codigo='"+codigo+"';";
+        Conexion.getConexion().setUpdate(consulta);
+   } 
 }
 

@@ -10,9 +10,36 @@ package com.upb.entidades;
  * @author Kevin Viscafe
  */
 public class Materia {
+    
     private String id;
     private String nombre;
+    private String horario;
     private String aula;
+    private String creditos;
+    
+    public Materia(String codigo, String nombre, String horario, String aula, String creditos){
+        this.id = codigo;
+        this.nombre = nombre;
+        this.horario = horario;
+        this.aula = aula;
+        this.creditos = creditos;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(String creditos) {
+        this.creditos = creditos;
+    }
     
     public Materia(){
         

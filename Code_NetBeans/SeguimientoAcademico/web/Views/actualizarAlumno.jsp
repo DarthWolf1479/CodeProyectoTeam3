@@ -11,6 +11,7 @@
 <html>
  <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="Views/style.css" />
     <title>Actualizar Alumno</title>
  </head>
  <body>
