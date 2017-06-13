@@ -40,7 +40,7 @@
     </form>
          <br>
          <br>
-         <a1>No tienes una cuenta...</a1> <a href="Views/registro.jsp">Registrarse</a>
+         
         
         <jsp:include page="_footer_1.jsp"></jsp:include>
     </body>
