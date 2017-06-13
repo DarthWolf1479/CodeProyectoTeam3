@@ -1,0 +1,90 @@
+form {
+    display: inline-block;
+    text-align: center;
+    font-size: 60%;
+    }
+
+input{
+      font-size: 70%;  
+}
+
+#button{
+    width: 10em;  height: 2em;
+    text-align: center;
+    font-size: 120%;
+}
+
+
+body{
+    text-align: center;
+    background-color: #B6D3EF;  
+    font-size: 120%;
+}
+
+a{
+    color: #0026FF;
+    font-size: 80%;
+}
+
+a1{
+    color: #000000;
+    font-size: 70%;
+}
+
+
+b{
+    text-align: center;
+    font-size: 100%;
+}
+
+nav{
+    
+}
+
+nav a{
+    text-align: center;
+    font-size: 120%;
+}
+
+table{
+    font-size: 150%;
+}
+
+table td{
+    text-align: left;
+}
+
+table td b{
+    text-align: right;
+}
+
+.botonActualizar{
+    text-align: right;
+    font-size: 150%;
+}
+
+h3{
+    font-size: 150%;
+}
+
+
+p{
+    font-size: 80%;
+}
+
+.botonRegistrar{
+    font-size: 200%;
+}
+
+.cancel{
+    font-size: 150%;
+}
+
+.form{
+    font-size: 200%;
+}
+
+
+	
+
+	
