@@ -6,10 +6,7 @@
 package com.upb.servets;
 
 import com.upb.basededatos.Consultas;
-import com.upb.entidades.Alumno;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,23 +28,9 @@ public class EliminarAlumno extends HttpServlet {
             throws ServletException, IOException {
         
        String code = (String) request.getParameter("codigo");
- 
-       String errorString = null;
- 
        Consultas.eliminarAlumno(code);
-        
-         
-         if (errorString != null) {
-             request.setAttribute("errorString", errorString);
-          
-            RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/Views/EliminarAlumno.jsp");
-            dispatcher.forward(request, response);
-        }
+       response.sendRedirect(request.getContextPath() + "/inicioAlumno");
        
-        else {
-            response.sendRedirect(request.getContextPath() + "/inicioAlumno");
-        }
  
     }
 

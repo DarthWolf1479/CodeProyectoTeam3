@@ -15,9 +15,7 @@
  </head>
  <body>
  
-    <jsp:include page="_header.jsp"></jsp:include>
-    <jsp:include page="_menu.jsp"></jsp:include>
- 
+    <jsp:include page="_header_1.jsp"></jsp:include>
     <h3>Actualizar Alumno</h3>
  
     <p style="color: red;">${errorString}</p>

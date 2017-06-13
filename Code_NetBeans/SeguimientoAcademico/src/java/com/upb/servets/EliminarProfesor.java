@@ -7,9 +7,8 @@ package com.upb.servets;
 
 import com.upb.basededatos.Consultas;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,32 +17,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lucho
  */
+
+@WebServlet(urlPatterns = {"/eliminarProfesor"})
 public class EliminarProfesor extends HttpServlet {
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String code = (String) request.getParameter("codigo");
- 
-       String errorString = null;
- 
-       Consultas.eliminarProfesor(code);
-        
-         
-         if (errorString != null) {
-             request.setAttribute("errorString", errorString);
-          
-            RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/Views/EliminarAlumno.jsp");
-            dispatcher.forward(request, response);
-        }
        
-        else {
-            response.sendRedirect(request.getContextPath() + "/inicioAlumno");
-        }
+        String code = (String) request.getParameter("codigo");
+        Consultas.eliminarProfesor(code);
+        response.sendRedirect(request.getContextPath() + "/inicioAlumno");
     }
-
+    
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
